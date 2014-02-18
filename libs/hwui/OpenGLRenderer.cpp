@@ -1765,6 +1765,10 @@ void OpenGLRenderer::setupDraw(bool clear) {
             setScissorFromClip();
         }
         setStencilFromClip();
+#ifdef QCOM_HARDWARE
+    } else {
+	glDisable(GL_STENCIL_TEST);
+#endif
     }
 
     mDescription.reset();
